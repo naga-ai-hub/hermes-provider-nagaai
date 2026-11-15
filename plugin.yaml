@@ -1,0 +1,11 @@
+name: nagaai
+kind: model-provider
+version: 1.0.0
+description: NagaAI model provider (OpenAI Responses API) with a live, tool-capable model list
+author: NagaAI
+requires_hermes: ">=0.22.2"
+requires_env:
+  - name: NAGAAI_API_KEY
+    description: NagaAI API key
+    secret: true
+    url: https://naga.ac/dashboard/api-keys
