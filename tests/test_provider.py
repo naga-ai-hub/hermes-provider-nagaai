@@ -86,7 +86,7 @@ class PluginTest(unittest.TestCase):
         self.assertEqual(profile.name, "nagaai")
         self.assertEqual(profile.api_mode, "codex_responses")
         self.assertEqual(profile.base_url, "https://api.naga.ac/v1")
-        self.assertEqual(profile.env_vars[0], "NAGAAI_API_KEY")
+        self.assertEqual(profile.env_vars[:2], ("NAGA_API_KEY", "NAGAAI_API_KEY"))
 
     def test_keeps_tool_capable_responses_chat_models_once(self):
         self.assertEqual(self.plugin.tool_capable_ids(CATALOG), ["anthropic/claude-sonnet-5.5"])

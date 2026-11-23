@@ -19,7 +19,7 @@ from providers import register_provider
 logger = logging.getLogger(__name__)
 
 BASE_URL = "https://api.naga.ac/v1"
-USER_AGENT = "hermes-provider-nagaai/1.0.0"
+USER_AGENT = "hermes-provider-nagaai/1.0.1"
 # Hermes speaks the Responses API in this mode; the catalog header narrows the
 # list to models served on that endpoint.
 ENDPOINT = "responses"
@@ -111,7 +111,9 @@ nagaai = NagaAIProfile(
     display_name="NagaAI",
     description="NagaAI — models from OpenAI, Anthropic, Google, DeepSeek and others over the Responses API",
     signup_url="https://naga.ac/dashboard/api-keys",
-    env_vars=("NAGAAI_API_KEY", "NAGAAI_BASE_URL"),
+    # Hermes reads key variables in order: NAGA_API_KEY is the name every NagaAI
+    # example uses; NAGAAI_API_KEY keeps 1.0.0 setups working.
+    env_vars=("NAGA_API_KEY", "NAGAAI_API_KEY", "NAGAAI_BASE_URL"),
     base_url=BASE_URL,
     auth_type="api_key",
     fallback_models=FALLBACK_MODELS,

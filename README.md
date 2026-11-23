@@ -5,7 +5,7 @@ OpenAI Responses API.
 
 ```bash
 hermes plugins install nagaai
-export NAGAAI_API_KEY="ng-..."
+export NAGA_API_KEY="ng-..."
 hermes --provider nagaai --model anthropic/claude-sonnet-5.5
 ```
 
@@ -14,7 +14,7 @@ Keys are on the [API Keys](https://naga.ac/dashboard/api-keys) page.
 ## What it does
 
 - Registers one model provider: base URL `https://api.naga.ac/v1`, key from
-  `NAGAAI_API_KEY`, optional `NAGAAI_BASE_URL` override, Hermes' Responses mode.
+  `NAGA_API_KEY` (the older `NAGAAI_API_KEY` is still read), optional `NAGAAI_BASE_URL` override, Hermes' Responses mode.
 - Fills the `/model` picker with the chat models that accept tool calls on the
   Responses endpoint, read from the public catalog `GET /v1/models`. If the
   catalog is unreachable, the picker shows a short built-in list.
@@ -22,7 +22,7 @@ Keys are on the [API Keys](https://naga.ac/dashboard/api-keys) page.
 
 ## Disclosure
 
-- Prompts, tool results and `NAGAAI_API_KEY` go to `api.naga.ac` through Hermes'
+- Prompts, tool results and the API key go to `api.naga.ac` through Hermes'
   own client. NagaAI forwards each request to the upstream provider serving the
   chosen model and bills your prepaid NagaAI balance.
 - The plugin itself makes one request: `GET https://api.naga.ac/v1/models`,
